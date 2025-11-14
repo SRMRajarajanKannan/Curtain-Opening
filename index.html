@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      background: #fce7f3;
+    }
+
+    .curtain-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .curtain {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #ff69b4;
+      transition: transform 1.6s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    #left {
+      left: 0;
+      border-right: 3px solid white;
+    }
+    #right {
+      right: 0;
+      border-left: 3px solid white;
+    }
+
+    #openBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 18px 28px;
+      font-size: 1.2rem;
+      background: white;
+      color: #ff69b4;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    #openBtn:hover {
+      background: #ffe4f1;
+    }
+
+    .content {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      padding: 40px;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .bouquet {
+      width: 220px;
+      margin-top: 40px;
+      filter: drop-shadow(0 0 18px rgba(255, 105, 180, 0.8));
+    }
+
+    .message {
+      margin-top: 30px;
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      box-shadow: 0 0 22px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 182, 193, 0.6);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 22px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 182, 193, 0.6); }
+      to { box-shadow: 0 0 35px rgba(255, 105, 180, 1), 0 0 60px rgba(255, 182, 193, 1); }
+    }
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      .curtain {
+        font-size: 1.2rem;
+      }
+      #openBtn {
+        padding: 14px 22px;
+        font-size: 1rem;
+      }
+      .bouquet {
+        width: 160px;
+      }
+      .message {
+        font-size: 1rem;
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="curtain-container">
+    <div class="curtain" id="left">If you feel low...</div>
+    <div class="curtain" id="right">Open the curtains 💗</div>
+    <button id="openBtn">Open Curtains</button>
+  </div>
+
+  <div class="content" id="contentArea">
+    <img src="flower.png" alt="Bouquet" class="bouquet" />
+    <div class="message">
+      <!-- Replace this text with your para -->
+      <p>I know You are going through a lot i dont know i just tried making this but i thing i didnt make up to your expectation ig compared to previous the one , Sorry for that , Jus Remember i will always there for you , I know you are going through a lot , you can get through this and i believe you 💖</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("openBtn").addEventListener("click", function () {
+      document.getElementById("left").style.transform = "translateX(-100%)";
+      document.getElementById("right").style.transform = "translateX(100%)";
+      this.style.display = "none";
+      setTimeout(() => {
+        document.getElementById("contentArea").style.display = "block";
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
